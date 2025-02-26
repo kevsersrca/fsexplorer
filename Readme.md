@@ -33,20 +33,14 @@ Installation
 
 1.  **Clone the Repository:**
 
-    bash
-
-    Copy
-
-    `git clone https://github.com/yourusername/file-explorer.git
-    cd file-explorer`
+    ```
+    git clone https://github.com/yourusername/file-explorer.git
+    cd file-explorer
+    ```
 
 2.  **Configure Environment Variables:**
 
     Update the `docker-compose.yml` file in the `backend` service with your Cloudflare R2 credentials:
-
-    yaml
-
-    Copy
 
     `environment:
     - R2_BUCKET=your_r2_bucket
@@ -66,9 +60,6 @@ The project contains two Dockerfiles---one for the NestJS backend and one for th
 
 In the project root (where `docker-compose.yml` is located), run:
 
-bash
-
-Copy
 
 ```
 docker-compose build
