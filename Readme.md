@@ -42,12 +42,14 @@ Installation
 
     Update the `docker-compose.yml` file in the `backend` service with your Cloudflare R2 credentials:
 
-    `environment:
+    ```
+    environment``:
     - R2_BUCKET=your_r2_bucket
     - R2_REGION=auto
     - R2_ENDPOINT=https://<your-account-id>.r2.cloudflarestorage.com
     - R2_ACCESS_KEY_ID=your_access_key_id
-    - R2_SECRET_ACCESS_KEY=your_secret_access_key`
+    - R2_SECRET_ACCESS_KEY=your_secret_access_key
+    ```
 
 * * * * *
 
