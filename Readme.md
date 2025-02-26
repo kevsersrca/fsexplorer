@@ -1,6 +1,8 @@
 File Explorer
 =============
 
+![File Explorer](r2explorer.png)
+
 A file explorer application built with NestJS (backend) and Vue (frontend) for managing files on Cloudflare R2 (S3-compatible). This project supports operations such as file upload, download, deletion, renaming, and folder creation/deletion. The application is fully dockerized for easy deployment.
 
 * * * * *
@@ -43,7 +45,7 @@ Installation
     Update the `docker-compose.yml` file in the `backend` service with your Cloudflare R2 credentials:
 
     ```
-    environment``:
+    environment:
     - R2_BUCKET=your_r2_bucket
     - R2_REGION=auto
     - R2_ENDPOINT=https://<your-account-id>.r2.cloudflarestorage.com
