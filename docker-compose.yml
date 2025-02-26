@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - R2_BUCKET=your_r2_bucket
+      - R2_REGION=auto
+      - R2_ENDPOINT=https://<your-account-id>.r2.cloudflarestorage.com
+      - R2_ACCESS_KEY_ID=your_access_key_id
+      - R2_SECRET_ACCESS_KEY=your_secret_access_key
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - VUE_APP_SERVER_URL=http://localhost:3000
+    restart: unless-stopped
