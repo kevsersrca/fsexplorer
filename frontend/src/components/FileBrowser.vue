@@ -188,7 +188,6 @@ export default {
   overflow-y: auto;
 }
 
-/* Form stili */
 fieldset {
   border: 1px solid #555;
   margin-bottom: 20px;
@@ -236,7 +235,6 @@ button:hover:not(:disabled) {
   color: #f0f0f0;
 }
 
-/* Responsive (mobil) */
 @media (max-width: 768px) {
   .browser-container {
     width: 100%;
