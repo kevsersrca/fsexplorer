@@ -30,13 +30,25 @@ export class R2Service {
   }
 
   async listFiles(prefix = '') {
-    const command = new ListObjectsV2Command({
-      Bucket: this.bucket,
-      Prefix: prefix,
-    });
-    const response = await this.s3Client.send(command);
-    return response.Contents;
+    let isTruncated = true;
+    let continuationToken = undefined;
+    const allFiles = [];
+
+    while (isTruncated) {
+      const command = new ListObjectsV2Command({
+        Bucket: this.bucket,
+        Prefix: prefix,
+        ContinuationToken: continuationToken,
+      });
+      const response = await this.s3Client.send(command);
+      allFiles.push(...(response.Contents || []));
+      isTruncated = response.IsTruncated;
+      continuationToken = response.NextContinuationToken;
+    }
+
+    return allFiles;
   }
+
 
   async uploadFile(key: string, body: Buffer) {
     const command = new PutObjectCommand({

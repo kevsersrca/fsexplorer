@@ -26,8 +26,8 @@ export class R2Controller {
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
   async uploadFile(
-      @UploadedFile() file: Express.Multer.File,
-      @Body('path') path?: string,
+    @UploadedFile() file: Express.Multer.File,
+    @Body('path') path?: string,
   ) {
     let key = file.originalname;
     if (path) {
@@ -68,6 +68,9 @@ export class R2Controller {
   @Post('create-folder')
   async createFolder(@Body() body: { folderName: string }) {
     await this.r2Service.createFolder(body.folderName);
-    return { message: 'Folder created successfully', folderName: body.folderName };
+    return {
+      message: 'Folder created successfully',
+      folderName: body.folderName,
+    };
   }
 }
